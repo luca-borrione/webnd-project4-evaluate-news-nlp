@@ -1,0 +1,28 @@
+extends: "./node_modules/@linthtml/linthtml-config-recommended"
+attr-name-ignore-regex: false
+id-class-ignore-regex: false
+line-max-len-ignore-regex: false
+maxerr: false
+raw-ignore-regex: false
+spec-char-escape: false
+text-ignore-regex: false
+rules:
+  attr-quote-style:
+    - true
+    - double
+  id-class-style:
+    - true
+    - bem
+  indent-width:
+    - true
+    - 2
+  label-req-for: true
+  line-end-style:
+    - true
+    - lf
+  line-max-len:
+    - true
+    - 120
+  title-max-len:
+    - true
+    - 60
