@@ -20,7 +20,8 @@
     "lint": "npm-run-all --parallel lint:*",
     "lint:css": "stylelint 'public/**/*.css'",
     "lint:html": "linthtml 'public/**/*.html'",
-    "lint:js": "eslint . --ext .js"
+    "lint:js": "eslint . --ext .js",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@linthtml/linthtml": "^0.8.0",
@@ -28,6 +29,8 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "prettier-package-json": "^2.6.0",
