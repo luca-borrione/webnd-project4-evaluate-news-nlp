@@ -1,6 +1,15 @@
 {
+  "[css]": {
+    "editor.formatOnSave": false
+  },
+  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
   "editor.tabSize": 2,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "less.validate": false,
+  "scss.validate": false
 }
