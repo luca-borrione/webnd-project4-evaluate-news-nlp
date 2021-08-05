@@ -5,6 +5,9 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
+    "prettier": "^2.3.2",
+    "prettier-package-json": "^2.6.0",
+    "prettier-plugin-sort-json": "^0.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
   }
