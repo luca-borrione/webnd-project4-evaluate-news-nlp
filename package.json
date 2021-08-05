@@ -1,14 +1,41 @@
 {
+  "private": false,
+  "name": "webnd-project4-evaluate-news-nlp",
+  "version": "1.0.0",
+  "description": "Project 4 for the Front End Web Developer Nanodegree at Udacity",
+  "license": "CC0-1.0",
+  "author": "Luca Borrione",
+  "homepage": "https://github.com/luca-borrione/webnd-project4-evaluate-news-nlp",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:luca-borrione/webnd-project4-evaluate-news-nlp.git"
+  },
+  "scripts": {
+    "check-yarn-integrity": "yarn check --integrity",
+    "format": "npm-run-all --parallel format:*",
+    "format:css": "$npm_execpath run lint:css --fix",
+    "format:html": "prettier --write 'public/**/*.html'",
+    "format:js": "$npm_execpath run lint:js --fix",
+    "format:json": "prettier --write '*.json'",
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:css": "stylelint 'public/**/*.css'",
+    "lint:html": "linthtml 'public/**/*.html'",
+    "lint:js": "eslint . --ext .js"
+  },
   "devDependencies": {
     "@linthtml/linthtml": "^0.8.0",
     "@linthtml/linthtml-config-recommended": "^0.1.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "prettier-package-json": "^2.6.0",
     "prettier-plugin-sort-json": "^0.0.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
+  },
+  "engines": {
+    "yarn": "^1.22.4"
   }
 }
