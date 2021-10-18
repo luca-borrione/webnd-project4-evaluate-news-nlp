@@ -1,5 +1,6 @@
 *.code-workspace
 coverage/
+dist
 .DS_Store
 .env
 .eslintcache

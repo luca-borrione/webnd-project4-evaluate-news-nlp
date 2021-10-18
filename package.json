@@ -11,6 +11,8 @@
     "url": "git@github.com:luca-borrione/webnd-project4-evaluate-news-nlp.git"
   },
   "scripts": {
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open",
+    "build-prod": "webpack --config webpack.prod.js",
     "check-yarn-integrity": "yarn check --integrity",
     "format": "npm-run-all --parallel format:*",
     "format:css": "$npm_execpath run lint:css --fix",
@@ -21,15 +23,26 @@
     "lint:css": "stylelint 'public/**/*.css'",
     "lint:html": "linthtml 'public/**/*.html'",
     "lint:js": "eslint . --ext .js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "node src/server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@linthtml/linthtml": "^0.8.0",
     "@linthtml/linthtml-config-recommended": "^0.1.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
+    "html-webpack-plugin": "^5.4.0",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.1",
     "npm-run-all": "^4.1.5",
@@ -37,7 +50,8 @@
     "prettier-package-json": "^2.6.0",
     "prettier-plugin-sort-json": "^0.0.2",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^22.0.0"
+    "stylelint-config-standard": "^22.0.0",
+    "webpack-dev-server": "^4.3.1"
   },
   "engines": {
     "yarn": "^1.22.4"
