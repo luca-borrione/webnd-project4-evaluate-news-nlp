@@ -1,4 +1,4 @@
-function checkForName(inputText) {
+export const checkForName = (inputText) => {
   console.log('::: Running checkForName :::', inputText);
   const names = [
     'Picard',
@@ -11,6 +11,4 @@ function checkForName(inputText) {
   if (names.includes(inputText)) {
     alert('Welcome, Captain!');
   }
-}
-
-export { checkForName };
+};

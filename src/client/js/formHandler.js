@@ -1,6 +1,6 @@
 import { checkForName } from './nameChecker';
 
-function handleSubmit(event) {
+export const handleSubmit = (event) => {
   event.preventDefault();
 
   // check what text was put into the form field
@@ -13,6 +13,4 @@ function handleSubmit(event) {
     .then((res) => {
       document.getElementById('results').innerHTML = res.message;
     });
-}
-
-export { handleSubmit };
+};
