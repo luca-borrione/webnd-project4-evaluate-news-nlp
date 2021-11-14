@@ -11,13 +11,6 @@ rules:
   import/prefer-default-export: off
   import/extensions: off
   implicit-arrow-linebreak: 0
-  comma-dangle:
-    - error
-    - arrays: never
-      objects: always-multiline
-      imports: never
-      exports: never
-      functions: never
   no-plusplus:
     - error
     - allowForLoopAfterthoughts: true

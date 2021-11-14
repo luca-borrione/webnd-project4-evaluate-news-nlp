@@ -1,5 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const path = require('path');
-// const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -19,7 +20,15 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      }
+      },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   optimization: {
@@ -28,6 +37,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -39,6 +49,6 @@ module.exports = {
       template: './src/client/views/index.html',
       filename: './index.html',
     }),
-    new MiniCssExtractPlugin({ filename: '[name].css' })
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
   ],
 };

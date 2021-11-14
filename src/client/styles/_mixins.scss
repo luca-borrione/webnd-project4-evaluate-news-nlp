@@ -1,0 +1,6 @@
+@mixin bg-linear-gradient() {
+  background: -webkit-gradient(90deg, $bg-light-color 0%, $bg-dark-color 61%);
+  background: -moz-gradient(90deg, $bg-light-color 0%, $bg-dark-color 61%);
+  background: -ms-gradient(90deg, $bg-light-color 0%, $bg-dark-color 61%);
+  background: linear-gradient(90deg, $bg-light-color 0%, $bg-dark-color 61%);
+}

@@ -2,27 +2,42 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Test</title>
+    <title>Natural Language Processing</title>
   </head>
 
   <body>
     <header>
-      <div>Logo</div>
-      <div>navigation</div>
+      <h1 class="site-title">Evaluate a News Article with NLP</h1>
     </header>
 
     <main>
-      <section>
+      <section class="intro-section">
+        <img alt="ai-npl" src="../assets/ai.jpg" class="intro-img" />
+
+        <div class="overlay-text">
+          <p>
+            Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI) that enables machines to
+            understand the human language. Its goal is to build systems that can make sense of text and automatically
+            perform tasks like translation, spell check, or topic classification.
+          </p>
+        </div>
+      </section>
+
+      <hr />
+
+      <section class="form-section">
+        <label for="url">Add a URL to a news article to see what the author's emotions and perspective:</label>
         <form onsubmit="return handleSubmit(event)">
-          <label for="name">Enter URL</label>
-          <input id="name" type="text" name="input" onblur="onBlur()" placeholder="Name" />
+          <input type="text" name="url" id="url" placeholder="URL" required />
           <button
             type="submit"
-            value="submit"
+            name="submit"
+            value="Analyse Text"
+            id="submit"
             onclick="return handleSubmit(event)"
             onsubmit="return handleSubmit(event)"
           >
-            SUBMIT
+            Analyse
           </button>
         </form>
       </section>
@@ -34,7 +49,11 @@
     </main>
 
     <footer>
-      <p>This is a footer</p>
+      <p>
+        Read more about The Meaning Cloud NLP
+        <a href="https://www.meaningcloud.com/" target="_blank" rel="noopener">here</a>.
+      </p>
+      <p>&copy; 2021 <a href="https://github.com/luca-borrione/" target="_blank" rel="noopener">Luca Borrione</a></p>
     </footer>
   </body>
 </html>

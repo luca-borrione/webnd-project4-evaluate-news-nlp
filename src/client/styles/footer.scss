@@ -1,0 +1,21 @@
+@import 'config';
+@import 'mixins';
+
+footer {
+  @include bg-linear-gradient();
+  text-align: center;
+  padding: 30px;
+  margin-top: 2em;
+  font-size: 0.9rem;
+  color: #fff;
+
+  a {
+    color: $secondary-font-color;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: $secondary-bg-color;
+    }
+  }
+}
