@@ -27,15 +27,23 @@
 
       <section class="form-section">
         <label for="url">Add a URL to a news article to see what the author's emotions and perspective:</label>
-        <form onsubmit="return Client.handleSubmit(event)">
+        <form name="analyser">
           <input type="text" name="url" id="url" placeholder="URL" required />
-          <button type="submit" name="submit" value="Analyse Text" id="submit">Analyse</button>
+          <button type="submit" name="submit">Analyse</button>
         </form>
+        <div class="loader hide">
+          <img src="../assets/loader.gif" alt="Loading..." />
+        </div>
       </section>
 
-      <section>
-        <strong>Form Results:</strong>
-        <div id="results"></div>
+      <section class="results-section">
+        <div class="data block hide">
+          <div class="title-block">Results</div>
+          <p class="polarity">Polarity: <span class="data-value"></span></p>
+          <p class="confidence">Confidence: <span class="data-value"></span></p>
+          <p class="agreement">Agreement: <span class="data-value"></span></p>
+          <p class="subjectivity">Subjectivity: <span class="data-value"></span></p>
+        </div>
       </section>
     </main>
 

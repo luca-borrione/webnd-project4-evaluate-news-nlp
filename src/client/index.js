@@ -5,4 +5,4 @@ import './styles/form.scss';
 import './styles/header.scss';
 import './styles/results.scss';
 
-export { handleSubmit } from './js/formHandler';
+export * from './js/app-view'; // eslint-disable-line import/export

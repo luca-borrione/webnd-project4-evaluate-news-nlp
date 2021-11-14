@@ -1,57 +1,17 @@
 @import 'config';
 
 .results-section {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.2em;
-
   .block {
     border-radius: 30px;
     border: 1px solid darken($secondary-font-color, 20%);
     background: darken($secondary-font-color, 10%);
     padding: 1em;
-  }
+    width: 60%;
+    margin: auto;
 
-  .article {
-    &-img {
-      width: 100%;
+    &.hide {
+      display: none;
     }
-
-    &-title {
-      font-weight: 700;
-      margin: 1em 0 0.3em;
-    }
-
-    &-info {
-      display: flex;
-      margin-bottom: 1em;
-      font-size: 1rem;
-    }
-
-    &-text {
-      margin-bottom: 1em;
-      font-size: 1rem;
-    }
-
-    &-link {
-      width: 100%;
-      padding: 1em 2em;
-      border-radius: 30px;
-      border: 1px solid $primary-bg-color;
-      transition: 0.2s ease-out;
-
-      a {
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        color: $primary-bg-color;
-        font-weight: 700;
-      }
-    }
-  }
-
-  .article-link:hover {
-    background: $secondary-bg-color;
   }
 
   .divider {
@@ -85,6 +45,8 @@
 
 @media (max-width: 768px) {
   .results-section {
-    grid-template-columns: 1fr;
+    .block {
+      width: 80%;
+    }
   }
 }
