@@ -38,6 +38,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
+    libraryTarget: 'var',
+    library: 'Client',
   },
   plugins: [
     new CleanWebpackPlugin({

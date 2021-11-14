@@ -15,7 +15,7 @@
     "clean": "rm -rf dist",
     "compile": "webpack --config webpack.prod.js",
     "compile:dev": "webpack --config webpack.dev.js",
-    "dev": "yarn clean && webpack-dev-server --config webpack.dev.js --open --port=3000",
+    "dev": "yarn clean && webpack-dev-server --config webpack.dev.js --open --port=5000",
     "format": "npm-run-all --parallel format:*",
     "format:css": "$npm_execpath run lint:css --fix",
     "format:html": "prettier --write 'public/**/*.html'",
@@ -34,7 +34,7 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
@@ -46,6 +46,7 @@
     "css-loader": "^6.4.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",

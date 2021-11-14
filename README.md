@@ -1,117 +1,36 @@
-# webnd-project4-evaluate-news-nlp
+# Evaluate a News Article with Natural Language Processing Project
 
-Evaluate News NLP - Project 4 for the Front End Web Developer Nanodegree at Udacity
+## Overview:
 
-# Project Instructions
+This is the fourth assessment project for the Udacity's [Front End Web Developer Nanodegree program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011)
 
-This repo is your starter code for the project. It is the same as the starter code we began with in lesson 2. Install and configure Webpack just as we did in the course. Feel free to refer to the course repo as you build this one, and remember to make frequent commits and to create and merge branches as necessary!
+This project aims to build a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites. When a user submits a URL of an article, the web page then dispalys sentiment analysis returned from [meaningcloud API](https://www.meaningcloud.com/products/sentiment-analysis), based on the contents of the article.
 
-The goal of this project is to give you practice with:
-
-- Setting up Webpack
-- Sass styles
-- Webpack Loaders and Plugins
-- Creating layouts and page design
-- Service workers
-- Using APIs and creating requests to external urls
-
-On top of that, I want to introduce you to the topic of Natural Language Processing. NLPs leverage machine learning and deep learning create a program that can interpret natural human speech. Systems like Alexa, Google Assistant, and many voice interaction programs are well known to us, but understanding human speech is an incredibly difficult task and requires a lot of resources to achieve. Full disclosure, this is the Wikipedia definition, but I found it to be a clear one:
-
-> Natural language processing (NLP) is a subfield of computer science, information engineering, and artificial intelligence
-> concerned with the interactions between computers and human (natural) languages, in particular how to program computers to
-> process and analyze large amounts of natural language data.
-
-You could spend years and get a masters degree focusing on the details of creating NLP systems and algorithms. Typically, NLP programs require far more resources than individuals have access to, but a fairly new API called Aylien has put a public facing API in front of their NLP system. We will use it in this project to determine various attributes of an article or blog post.
+The project I realised meets the [project specifications](https://review.udacity.com/#!/rubrics/3626/view) required by Udacity.
 
 ## Getting started
 
-It would probably be good to first get your basic project setup and functioning. Follow the steps from the course up to Lesson 4 but don't add Service Workers just yet. We won't need the service workers during development and having extra caches floating around just means there's more potential for confusion. So, fork this repo and begin your project setup.
+1. Use [nvm](https://github.com/nvm-sh/nvm) to install the required version node (v14.17.3)
 
-Remember that once you clone, you will still need to install everything:
+1. Install the modules
+   by running `yarn`
 
-`cd` into your new folder and run:
+1. Sign up for an API key at [meaningcloud.com](https://www.meaningcloud.com/developer/create-account)
 
-- `npm install`
+1. Create a new `.env` file in the root of the project and fill it with your API key like this:
+   ```
+   API_KEY=***
+   ```
+1. 7. Start the project
 
-## Setting up the API
+| Commands           | Action                    | Open Broswer                             |
+| :----------------- | :------------------------ | :--------------------------------------- |
+| `yarn compile`     | prod build                | http://localhost:3000                    |
+| `yarn compile:dev` | dev build                 | http://localhost:3000                    |
+| `yarn dev`         | dev build with hot reload | http://localhost:5000                    |
+| `yarn start`       | run the express server    | run the server before opening a browser! |
 
-The Aylien API is perhaps different than what you've used before. It has you install a node module to run certain commands through, it will simplify the requests we need to make from our node/express backend.
-
-### Step 1: Signup for an API key
-
-First, you will need to go [here](https://developer.aylien.com/signup). Signing up will get you an API key. Don't worry, at the time of this course, the API is free to use up to 1000 requests per day or 333 intensive requests. It is free to check how many requests you have remaining for the day.
-
-### Step 2: Install the SDK
-
-Next you'll need to get the SDK. SDK stands for Software Development Kit, and SDKs are usually a program that brings together various tools to help you work with a specific technology. SDKs will be available for all the major languages and platforms, for instance the Aylien SDK brings together a bunch of tools and functions that will make it possible to interface with their API from our server and is available for Node, Python, PHP, Go, Ruby and many others. We are going to use the Node one, the page is available [here](https://docs.aylien.com/textapi/sdks/#sdks). You get 1000 free requests per day.
-
-### Step 3: Require the SDK package
-
-Install the SDK in your project and then we'll be ready to set up your server/index.js file.
-
-Your server index.js file must have these things:
-
-- [ ] Require the Aylien npm package
-
-```
-var aylien = require("aylien_textapi");
-```
-
-### Step 4: Environment Variables
-
-Next we need to declare our API keys, which will look something like this:
-
-```
-// set aylien API credentias
-var textapi = new aylien({
-  application_id: "your-api-id",
-  application_key: "your-key"
-});
-```
-
-...but there's a problem with this. We are about to put our personal API keys into a file, but when we push, this file is going to be available PUBLICLY on Github. Private keys, visible publicly are never a good thing. So, we have to figure out a way to make that not happen. The way we will do that is with environment variables. Environment variables are pretty much like normal variables in that they have a name and hold a value, but these variables only belong to your system and won't be visible when you push to a different environment like Github.
-
-- [ ] Use npm or yarn to install the dotenv package `npm install dotenv`. This will allow us to use environment variables we set in a new file
-- [ ] Create a new `.env` file in the root of your project
-- [ ] Go to your .gitignore file and add `.env` - this will make sure that we don't push our environment variables to Github! If you forget this step, all of the work we did to protect our API keys was pointless.
-- [ ] Fill the .env file with your API keys like this:
-
-```
-API_ID=**************************
-API_KEY=**************************
-```
-
-- [ ] Add this code to the very top of your server/index.js file:
-
-```
-const dotenv = require('dotenv');
-dotenv.config();
-```
-
-- [ ] Reference variables you created in the .env file by putting `process.env` in front of it, an example might look like this:
-
-```
-console.log(`Your API key is ${process.env.API_KEY}`);
-```
-
-...Not that you would want to do that. This means that our updated API credential settings will look like this:
-
-```javascript
-// set aylien API credentials
-// NOTICE that textapi is the name I used, but it is arbitrary.
-// You could call it aylienapi, nlp, or anything else,
-//   just make sure to make that change universally!
-var textapi = new aylien({
-  application_id: process.env.API_ID,
-  application_key: process.env.API_KEY,
-});
-```
-
-### Step 5: Using the API
-
-We're ready to go! The API has a lot of different endpoints you can take a look at [here](https://docs.aylien.com/textapi/endpoints/#api-endpoints). And you can see how using the SDK simplifies the requests we need to make.
-
-I won't provide further examples here, as it's up to you to create the various requests and make sure your server is set up appropriately.
+When running `yarn dev`, you need to run also `yarn start` on a second terminal window.
 
 ## After the Aylien API
 

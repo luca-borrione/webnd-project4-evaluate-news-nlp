@@ -36,6 +36,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
+    libraryTarget: 'var',
+    library: 'Client',
   },
   plugins: [
     // new BundleAnalyzerPlugin(),
@@ -53,6 +55,11 @@ module.exports = {
   devServer: {
     devMiddleware: {
       writeToDisk: true,
+    },
+    proxy: {
+      '/api/**': {
+        target: 'http://localhost:3000',
+      },
     },
   },
 };
