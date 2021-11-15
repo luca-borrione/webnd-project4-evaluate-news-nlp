@@ -54,5 +54,16 @@
       </p>
       <p>&copy; 2021 <a href="https://github.com/luca-borrione/" target="_blank" rel="noopener">Luca Borrione</a></p>
     </footer>
+
+    <!-- Register Service Workers-->
+    <script>
+      // Check that service workers are supported
+      if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>

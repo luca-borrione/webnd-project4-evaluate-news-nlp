@@ -6,7 +6,7 @@ let $results;
 
 const storeElements = () => {
   $form = {
-    analyse: document.forms.analyser,
+    analyser: document.forms.analyser,
     url: document.forms.analyser.url,
     submitButton: document.forms.analyser.submit,
   };
@@ -52,6 +52,7 @@ const onAnalyserFormSubmit = (event) => {
   if (!isValidURL(url)) {
     return alert(`wong url ${url}`);
   }
+
   toggleLoader();
   toggleSubmitButton();
   toggleResultsBlock('hide');
