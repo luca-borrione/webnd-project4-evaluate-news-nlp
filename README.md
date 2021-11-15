@@ -25,9 +25,9 @@ The project I realised meets the [project specifications](https://review.udacity
 
 | Commands           | Action                    | Open Broswer                             |
 | :----------------- | :------------------------ | :--------------------------------------- |
-| `yarn compile`     | prod build                | http://localhost:3000                    |
-| `yarn compile:dev` | dev build                 | http://localhost:3000                    |
-| `yarn dev`         | dev build with hot reload | http://localhost:5000                    |
+| `yarn compile`     | prod build                | http://localhost:8080                    |
+| `yarn compile:dev` | dev build                 | http://localhost:8080                    |
+| `yarn dev`         | dev build with hot reload | http://localhost:3000                    |
 | `yarn start`       | run the express server    | run the server before opening a browser! |
 
 When running `yarn dev`, you need to run also `yarn start` on a second terminal window.

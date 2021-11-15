@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const path = require('path');
-// const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -58,7 +57,7 @@ module.exports = {
     },
     proxy: {
       '/api/**': {
-        target: 'http://localhost:3000',
+        target: 'http://localhost:8080',
       },
     },
   },
