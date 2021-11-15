@@ -51,6 +51,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/client/views/index.html',
       filename: './index.html',
+      favicon: './src/client/assets/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new WorkboxPlugin.GenerateSW(),

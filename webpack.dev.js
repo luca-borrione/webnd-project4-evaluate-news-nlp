@@ -43,6 +43,7 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/client/views/index.html',
       filename: './index.html',
+      favicon: './src/client/assets/favicon.ico',
     }),
     new CleanWebpackPlugin({
       dry: true,
@@ -52,9 +53,9 @@ module.exports = {
     }),
   ],
   devServer: {
-    devMiddleware: {
-      writeToDisk: true,
-    },
+    // devMiddleware: {
+    //   writeToDisk: true,
+    // },
     proxy: {
       '/api/**': {
         target: 'http://localhost:8080',
