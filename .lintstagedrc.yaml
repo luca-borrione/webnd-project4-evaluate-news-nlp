@@ -1,4 +1,4 @@
-'*.css':
+'*.scss':
   - stylelint --fix
 '*.html':
   - prettier --write

@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import './core/variables';
 
 * {
@@ -11,7 +13,7 @@ body {
   min-height: 100vh;
   font-family: $primary-font-family;
   font-size: 1.3rem;
-  color: darken($primary-font-color, 10%);
+  color: color.scale($primary-font-color, $lightness: -10%);
 }
 
 h1 {

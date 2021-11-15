@@ -1,10 +1,12 @@
+@use 'sass:color';
+
 @import '../core/variables';
 
 .results-section {
   .block {
     border-radius: 30px;
-    border: 1px solid darken($secondary-font-color, 20%);
-    background: darken($secondary-font-color, 10%);
+    border: 1px solid color.scale($secondary-font-color, $lightness: -20%);
+    background: color.scale($secondary-font-color, $lightness: -10%);
     padding: 1em;
     width: 60%;
     margin: auto;
@@ -37,7 +39,7 @@
     letter-spacing: 1px;
     font-size: 1.2rem;
     border: 2px solid $primary-bg-color;
-    background: lighten($primary-bg-color, 50%);
+    background: color.scale($primary-bg-color, $lightness: 50%);
     padding: 0.2em 0;
     margin-bottom: 0.5em;
   }

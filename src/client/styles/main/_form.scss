@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 @import '../core/variables';
 
 .form-section {
@@ -18,32 +20,32 @@
       margin: 10px 0 5px;
       border-radius: 50px;
       outline: none;
-      background: darken($secondary-font-color, 10%);
+      background: color.scale($secondary-font-color, $lightness: -10%);
 
       &:focus {
-        background: darken($secondary-font-color, 10%);
+        background: color.scale($secondary-font-color, $lightness: -10%);
       }
     }
 
     input[type='text'] {
       padding-right: 50px;
-      border: 1px solid darken($secondary-font-color, 20%);
+      border: 1px solid color.scale($secondary-font-color, $lightness: -20%);
     }
 
     button[type='submit'] {
       width: 10em;
       margin-left: -50px;
-      background: lighten($primary-bg-color, 10%);
-      border: 1px solid lighten($primary-bg-color, 10%);
+      background: color.scale($primary-bg-color, $lightness: 10%);
+      border: 1px solid color.scale($primary-bg-color, $lightness: 10%);
       color: $secondary-font-color;
       cursor: pointer;
       transition: 0.2s ease;
-      -webkit-appearance: none;
+      appearance: none;
 
       &:hover {
         background: $primary-bg-color;
         border: 1px solid $primary-bg-color;
-        -webkit-appearance: none;
+        appearance: none;
       }
 
       &.hide {
