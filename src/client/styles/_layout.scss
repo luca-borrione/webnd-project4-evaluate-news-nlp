@@ -1,6 +1,11 @@
-@import 'config';
+@import './core/variables';
+
+* {
+  box-sizing: border-box;
+}
 
 body {
+  margin: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -9,14 +14,9 @@ body {
   color: darken($primary-font-color, 10%);
 }
 
-main {
-  flex: 2;
-}
-
-section {
-  width: 800px;
-  max-width: 90%;
-  margin: 20px auto;
+h1 {
+  margin: 0;
+  padding: 0;
 }
 
 h2,
@@ -29,6 +29,10 @@ h3 {
 h3 {
   font-weight: 700;
   font-size: 1.4rem;
+}
+
+p {
+  margin: 0;
 }
 
 hr {

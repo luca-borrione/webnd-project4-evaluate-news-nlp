@@ -1,0 +1,15 @@
+@import './core/variables';
+@import './core/mixins';
+
+header {
+  @include bg-linear-gradient();
+  text-align: center;
+  padding: 35px 50px;
+  color: $secondary-font-color;
+
+  .site-title {
+    font-family: $secondary-font-family;
+    font-weight: 700;
+    font-size: 2.2rem;
+  }
+}

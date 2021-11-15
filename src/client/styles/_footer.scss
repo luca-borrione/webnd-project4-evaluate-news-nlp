@@ -1,5 +1,5 @@
-@import 'config';
-@import 'mixins';
+@import './core/variables';
+@import './core/mixins';
 
 footer {
   @include bg-linear-gradient();

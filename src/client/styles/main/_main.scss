@@ -1,0 +1,51 @@
+@import '../core/variables';
+
+main {
+  @import 'form';
+  @import 'results';
+
+  flex: 2;
+
+  section {
+    width: 800px;
+    max-width: 90%;
+    margin: 20px auto;
+  }
+
+  .intro-section {
+    margin-top: 70px;
+    position: relative;
+
+    .intro-img {
+      width: 29em;
+      border: 0.2em solid darken($primary-border-color, 10%);
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 65%;
+      left: 25%;
+      padding: 1.1em;
+      background: lighten($secondary-bg-color, 10%);
+      border: 0.1em solid darken($primary-border-color, 10%);
+
+      p {
+        line-height: 1.5;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .intro-section {
+      float: none;
+
+      .intro-img {
+        display: none;
+      }
+
+      .overlay-text {
+        position: static;
+      }
+    }
+  }
+}
