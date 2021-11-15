@@ -26,10 +26,13 @@
       <hr />
 
       <section class="form-section">
-        <label for="url">Add a URL to a news article to see what the author's emotions and perspective:</label>
+        <label for="form-analyser__url-field">
+          Add a URL to a news article to see what the author's emotions and perspective:
+        </label>
+        <span class="error-message"></span>
         <form name="analyser">
-          <input type="text" name="url" id="url" placeholder="URL" required />
-          <button type="submit" name="submit">Analyse</button>
+          <input type="text" id="form-analyser__url-field" placeholder="URL" required />
+          <button type="submit" id="form-analyser__submit-button">Analyse</button>
         </form>
         <div class="loader hide">
           <img src="../assets/loader.gif" alt="Loading..." />

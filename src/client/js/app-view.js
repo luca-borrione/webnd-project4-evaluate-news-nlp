@@ -1,4 +1,4 @@
-import { isValidURL, handleError } from './utils';
+import { isValidURL, handleError, selectors } from './utils';
 import { analyse } from './app-controller';
 
 let $form;
@@ -7,17 +7,18 @@ let $results;
 const storeElements = () => {
   $form = {
     analyser: document.forms.analyser,
-    url: document.forms.analyser.url,
-    submitButton: document.forms.analyser.submit,
+    url: document.forms.analyser.elements['form-analyser__url-field'],
+    submitButton: document.forms.analyser.elements['form-analyser__submit-button'],
+    error: document.querySelector(selectors.form.error),
   };
 
   $results = {
-    loader: document.querySelector('.loader'),
-    block: document.querySelector('.data.block'),
-    polarity: document.querySelector('.polarity .data-value'),
-    confidence: document.querySelector('.confidence .data-value'),
-    agreement: document.querySelector('.agreement .data-value'),
-    subjectivity: document.querySelector('.subjectivity .data-value'),
+    loader: document.querySelector(selectors.results.loader),
+    block: document.querySelector(selectors.results.block),
+    polarity: document.querySelector(selectors.results.polarity),
+    confidence: document.querySelector(selectors.results.confidence),
+    agreement: document.querySelector(selectors.results.agreement),
+    subjectivity: document.querySelector(selectors.results.subjectivity),
   };
 };
 
@@ -44,18 +45,27 @@ const updateView = (data) => {
   $results.subjectivity.innerHTML = data.subjectivity;
 };
 
+const clearError = () => {
+  $form.error.innerHTML = '';
+};
+
+const displayError = (message) => {
+  $form.error.innerHTML = `<h3>${message}</h3>`;
+};
+
 const onAnalyserFormSubmit = (event) => {
   event.preventDefault();
   event.stopPropagation();
 
   const url = $form.url.value;
   if (!isValidURL(url)) {
-    return alert(`wong url ${url}`);
+    return displayError('the url you entered is in a wrong format');
   }
 
   toggleLoader();
   toggleSubmitButton();
   toggleResultsBlock('hide');
+  clearError();
   return analyse(url)
     .then((results) => {
       updateView(results);
@@ -75,4 +85,4 @@ const init = () => {
   initEventListeners();
 };
 
-window.addEventListener('DOMContentLoaded', init);
+window.document.addEventListener('DOMContentLoaded', init);

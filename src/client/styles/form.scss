@@ -3,6 +3,10 @@
 .form-section {
   margin-top: 50px;
 
+  .error-message h3 {
+    padding-bottom: initial;
+  }
+
   form {
     display: flex;
 
