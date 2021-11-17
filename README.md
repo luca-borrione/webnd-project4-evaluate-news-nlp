@@ -45,19 +45,28 @@ The project I realised meets the [project specifications](https://review.udacity
 
 ## Running the App
 
-| Command            | Action                    | Open Broswer                             |
-| :----------------- | :------------------------ | :--------------------------------------- |
-| `yarn compile`     | prod build                | http://localhost:8080                    |
-| `yarn compile:dev` | dev build                 | http://localhost:8080                    |
-| `yarn dev`         | dev build with hot reload | http://localhost:3000                    |
-| `yarn start`       | run the express server    | run the server before opening a browser! |
+Run the following commands in the terminal and the open a browser window at the corresponding url
 
-When running `yarn dev`, you need to run also `yarn start` on a second terminal window.
+| Prod Build                 |
+| :------------------------- |
+| `yarn compile; yarn start` |
+| http://localhost:8080      |
+
+| Dev Build                      |
+| :----------------------------- |
+| `yarn compile:dev; yarn start` |
+| http://localhost:8080          |
+
+| Dev Build with hot reload           |
+| :---------------------------------- |
+| `yarn dev`                          |
+| `yarn start` (on a second terminal) |
+| http://localhost:3000               |
 
 ## Other commands
 
-| Command       | Action                                       |
-| :------------ | :------------------------------------------- |
-| `yarn test`   | executes jest to run the unit tests          |
-| `yarn format` | will format the files according to the rules |
-| `yarn lint`   | will check the style errors on the files     |
+| Command       | Action                         |
+| :------------ | :----------------------------- |
+| `yarn test`   | run unit tests with jest       |
+| `yarn format` | format all the files           |
+| `yarn lint`   | check the styling of the files |
