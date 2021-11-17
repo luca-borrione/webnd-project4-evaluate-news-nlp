@@ -1,13 +1,13 @@
 export const selectors = {
   form: {
-    error: '.error-message',
+    error: '.form-analyser__error-message',
+    spinner: '.form-analyser__spinner',
   },
   results: {
-    loader: '.loader',
-    block: '.data.block',
-    polarity: '.polarity .data-value',
-    confidence: '.confidence .data-value',
-    agreement: '.agreement .data-value',
-    subjectivity: '.subjectivity .data-value',
+    card: '.results-card',
+    polarity: '.results-card__polarity-value',
+    confidence: '.results-card__confidence-value',
+    agreement: '.results-card__agreement-value',
+    subjectivity: '.results-card__subjectivity-value',
   },
 };

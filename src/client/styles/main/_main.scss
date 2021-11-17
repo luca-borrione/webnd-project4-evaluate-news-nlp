@@ -13,16 +13,16 @@ main {
     margin: 20px auto;
   }
 
-  .intro-section {
+  .description {
     margin-top: 70px;
     position: relative;
 
-    .intro-img {
+    &__image {
       width: 29em;
       border: 0.2em solid color.scale($primary-border-color, $lightness: -10%);
     }
 
-    .overlay-text {
+    &__text {
       position: absolute;
       top: 65%;
       left: 25%;
@@ -37,14 +37,14 @@ main {
   }
 
   @media (max-width: 768px) {
-    .intro-section {
+    .description {
       float: none;
 
-      .intro-img {
+      &__image {
         display: none;
       }
 
-      .overlay-text {
+      &__text {
         position: static;
       }
     }

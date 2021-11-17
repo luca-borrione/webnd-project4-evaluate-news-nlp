@@ -23,11 +23,11 @@ describe('app-view', () => {
       url: document.forms.analyser.elements['form-analyser__url-field'],
       submitButton: document.forms.analyser.elements['form-analyser__submit-button'],
       error: document.querySelector(selectors.form.error),
+      spinner: document.querySelector(selectors.form.spinner),
     };
 
     $results = {
-      loader: document.querySelector(selectors.results.loader),
-      block: document.querySelector(selectors.results.block),
+      card: document.querySelector(selectors.results.card),
       polarity: document.querySelector(selectors.results.polarity),
       confidence: document.querySelector(selectors.results.confidence),
       agreement: document.querySelector(selectors.results.agreement),
@@ -37,17 +37,17 @@ describe('app-view', () => {
 
   beforeEach(() => {
     window.document.body.innerHTML = `
-      <span class="error-message"></span>
+      <span class="form-analyser__error-message"></span>
       <form name="analyser">
         <input type="text" id="form-analyser__url-field" />
         <button type="submit" id="form-analyser__submit-button"></button>
       </form>
-      <div class="loader hide"></div>
-      <div class="data block hide">
-        <p class="polarity">Polarity: <span class="data-value"></span></p>
-        <p class="confidence">Confidence: <span class="data-value"></span></p>
-        <p class="agreement">Agreement: <span class="data-value"></span></p>
-        <p class="subjectivity">Subjectivity: <span class="data-value"></span></p>
+      <div class="form-analyser__spinner hide"></div>
+      <div class="results-card hide">
+        <span class="results-card__polarity-value"></span>
+        <span class="results-card__confidence-value"></span>
+        <span class="results-card__agreement-value"></span>
+        <span class="results-card__subjectivity-value"></span>
       </div>
     `;
 
@@ -69,11 +69,11 @@ describe('app-view', () => {
       expect($form.error.innerHTML).toBe('<h3>the url you entered is in a wrong format</h3>');
     });
 
-    it('should show the loader', () => {
-      expect($results.loader.classList.contains('hide')).toBe(true);
+    it('should show the spinner', () => {
+      expect($form.spinner.classList.contains('hide')).toBe(true);
       $form.url.value = 'http://www.example.com';
       $form.analyser.submit();
-      expect($results.loader.classList.contains('hide')).toBe(false);
+      expect($form.spinner.classList.contains('hide')).toBe(false);
     });
 
     it('should hide the submit button', () => {
@@ -83,11 +83,11 @@ describe('app-view', () => {
       expect($form.submitButton.classList.contains('hide')).toBe(true);
     });
 
-    it('should keep hidden the results block', () => {
-      expect($results.block.classList.contains('hide')).toBe(true);
+    it('should keep hidden the results card', () => {
+      expect($results.card.classList.contains('hide')).toBe(true);
       $form.url.value = 'http://www.example.com';
       $form.analyser.submit();
-      expect($results.block.classList.contains('hide')).toBe(true);
+      expect($results.card.classList.contains('hide')).toBe(true);
     });
 
     it('should keep empty the error message', () => {
@@ -121,22 +121,22 @@ describe('app-view', () => {
       expect($results.subjectivity.innerHTML).toBe('mock-subjectivity');
     });
 
-    it('should hide again the loader', async () => {
-      expect($results.loader.classList.contains('hide')).toBe(true);
+    it('should hide again the spinner', async () => {
+      expect($form.spinner.classList.contains('hide')).toBe(true);
       $form.url.value = 'http://www.example.com';
       $form.analyser.submit();
-      expect($results.loader.classList.contains('hide')).toBe(false);
+      expect($form.spinner.classList.contains('hide')).toBe(false);
       await flushPromises();
-      expect($results.loader.classList.contains('hide')).toBe(true);
+      expect($form.spinner.classList.contains('hide')).toBe(true);
     });
 
-    it('should show the results block', async () => {
-      expect($results.block.classList.contains('hide')).toBe(true);
+    it('should show the results card', async () => {
+      expect($results.card.classList.contains('hide')).toBe(true);
       $form.url.value = 'http://www.example.com';
       $form.analyser.submit();
-      expect($results.block.classList.contains('hide')).toBe(true);
+      expect($results.card.classList.contains('hide')).toBe(true);
       await flushPromises();
-      expect($results.block.classList.contains('hide')).toBe(false);
+      expect($results.card.classList.contains('hide')).toBe(false);
     });
 
     it('should show again the submit button', async () => {
@@ -161,16 +161,16 @@ describe('app-view', () => {
   });
 
   describe('resubmitting a new url', () => {
-    it('should hide again the results block', async () => {
-      expect($results.block.classList.contains('hide')).toBe(true);
+    it('should hide again the results card', async () => {
+      expect($results.card.classList.contains('hide')).toBe(true);
       $form.url.value = 'http://www.example.com';
       $form.analyser.submit();
-      expect($results.block.classList.contains('hide')).toBe(true);
+      expect($results.card.classList.contains('hide')).toBe(true);
       await flushPromises();
-      expect($results.block.classList.contains('hide')).toBe(false);
+      expect($results.card.classList.contains('hide')).toBe(false);
       $form.url.value = 'http://www.example.co.uk';
       $form.analyser.submit();
-      expect($results.block.classList.contains('hide')).toBe(true);
+      expect($results.card.classList.contains('hide')).toBe(true);
     });
   });
 });

@@ -2,10 +2,10 @@
 
 @import '../core/variables';
 
-.form-section {
+.form-analyser {
   margin-top: 50px;
 
-  .error-message h3 {
+  &__error-message h3 {
     padding-bottom: initial;
   }
 
@@ -54,12 +54,12 @@
     }
   }
 
-  .loader {
+  &__spinner {
     text-align: center;
     margin-top: 2em;
   }
 
-  .loader.hide {
+  &__spinner.hide {
     display: none;
   }
 }

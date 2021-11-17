@@ -2,8 +2,8 @@
 
 @import '../core/variables';
 
-.results-section {
-  .block {
+.results {
+  &-card {
     border-radius: 30px;
     border: 1px solid color.scale($secondary-font-color, $lightness: -20%);
     background: color.scale($secondary-font-color, $lightness: -10%);
@@ -14,40 +14,33 @@
     &.hide {
       display: none;
     }
-  }
 
-  .divider {
-    margin: 0 0.3em;
-    font-weight: 700;
-  }
-
-  .data {
     font-size: 1.1rem;
 
-    &-value {
+    .data-value {
       font-weight: 700;
     }
 
     p {
       margin-bottom: 0.5em;
     }
-  }
 
-  .title-block {
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
-    border: 2px solid $primary-bg-color;
-    background: color.scale($primary-bg-color, $lightness: 50%);
-    padding: 0.2em 0;
-    margin-bottom: 0.5em;
+    &__title {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+      border: 2px solid $primary-bg-color;
+      background: color.scale($primary-bg-color, $lightness: 50%);
+      padding: 0.2em 0;
+      margin-bottom: 0.5em;
+    }
   }
 }
 
 @media (max-width: 768px) {
-  .results-section {
-    .block {
+  .results {
+    &__card {
       width: 80%;
     }
   }

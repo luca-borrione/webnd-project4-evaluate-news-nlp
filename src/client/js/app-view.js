@@ -10,11 +10,11 @@ const storeElements = () => {
     url: document.forms.analyser.elements['form-analyser__url-field'],
     submitButton: document.forms.analyser.elements['form-analyser__submit-button'],
     error: document.querySelector(selectors.form.error),
+    spinner: document.querySelector(selectors.form.spinner),
   };
 
   $results = {
-    loader: document.querySelector(selectors.results.loader),
-    block: document.querySelector(selectors.results.block),
+    card: document.querySelector(selectors.results.card),
     polarity: document.querySelector(selectors.results.polarity),
     confidence: document.querySelector(selectors.results.confidence),
     agreement: document.querySelector(selectors.results.agreement),
@@ -22,15 +22,15 @@ const storeElements = () => {
   };
 };
 
-const toggleLoader = () => {
-  $results.loader.classList.toggle('hide');
+const toggleSpinner = () => {
+  $form.spinner.classList.toggle('hide');
 };
 
-const toggleResultsBlock = (force) => {
+const toggleResultsCard = (force) => {
   if (force) {
-    $results.block.classList.add('hide');
+    $results.card.classList.add('hide');
   } else {
-    $results.block.classList.toggle('hide');
+    $results.card.classList.toggle('hide');
   }
 };
 
@@ -62,15 +62,15 @@ const onAnalyserFormSubmit = (event) => {
     return displayError('the url you entered is in a wrong format');
   }
 
-  toggleLoader();
+  toggleSpinner();
   toggleSubmitButton();
-  toggleResultsBlock('hide');
+  toggleResultsCard('hide');
   clearError();
   return analyse(url)
     .then((results) => {
       updateView(results);
-      toggleLoader();
-      toggleResultsBlock();
+      toggleSpinner();
+      toggleResultsCard();
       toggleSubmitButton();
     })
     .catch(handleError);

@@ -6,47 +6,52 @@
   </head>
 
   <body>
-    <header>
-      <h1 class="site-title">Evaluate a News Article with NLP</h1>
+    <header class="banner">
+      <h1 class="banner__title">Evaluate a News Article with NLP</h1>
     </header>
 
     <main>
-      <section class="intro-section">
-        <img alt="ai-npl" src="../assets/ai.jpg" class="intro-img" />
-
-        <div class="overlay-text">
+      <section class="description">
+        <img alt="ai-npl" src="../assets/ai-npl.jpg" class="description__image" />
+        <aside class="description__text">
           <p>
             Natural Language Processing (NLP) is a branch of Artificial Intelligence (AI) that enables machines to
             understand the human language. Its goal is to build systems that can make sense of text and automatically
             perform tasks like translation, spell check, or topic classification.
           </p>
-        </div>
+        </aside>
       </section>
 
       <hr />
 
-      <section class="form-section">
+      <section class="form-analyser">
         <label for="form-analyser__url-field">
           Add a URL to a news article to see what the author's emotions and perspective:
         </label>
-        <span class="error-message"></span>
+        <span class="form-analyser__error-message"></span>
         <form name="analyser">
           <input type="text" id="form-analyser__url-field" placeholder="URL" required />
           <button type="submit" id="form-analyser__submit-button">Analyse</button>
         </form>
-        <div class="loader hide">
-          <img src="../assets/loader.gif" alt="Loading..." />
+        <div class="form-analyser__spinner hide">
+          <img src="../assets/spinner.gif" alt="Loading..." />
         </div>
       </section>
 
-      <section class="results-section">
-        <div class="data block hide">
-          <div class="title-block">Results</div>
-          <p class="polarity">Polarity: <span class="data-value"></span></p>
-          <p class="confidence">Confidence: <span class="data-value"></span></p>
-          <p class="agreement">Agreement: <span class="data-value"></span></p>
-          <p class="subjectivity">Subjectivity: <span class="data-value"></span></p>
-        </div>
+      <section class="results">
+        <article class="results-card hide">
+          <div class="results-card__title">Results</div>
+          <p class="results-card__polarity">Polarity: <span class="data-value results-card__polarity-value"></span></p>
+          <p class="results-card__confidence">
+            Confidence: <span class="data-value results-card__confidence-value"></span>
+          </p>
+          <p class="results-card__agreement">
+            Agreement: <span class="data-value results-card__agreement-value"></span>
+          </p>
+          <p class="results-card__subjectivity">
+            Subjectivity: <span class="data-value results-card__subjectivity-value"></span>
+          </p>
+        </article>
       </section>
     </main>
 
